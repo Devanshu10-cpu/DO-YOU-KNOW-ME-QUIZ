@@ -7,7 +7,9 @@ var userName = readlineSync.question(" What's your name ? ");
 
 console.log("welcome " + userName + " TO DO YOU KNOW DEVANSHU ? ")
 
-console.log("RULES OF THE GAME : YOU HAVE TO GIVE ATLEAST THREE(3) CORRECT ANSWER TO ENTER THE NEXT LEVEL")
+var chalk = require('chalk');
+
+console.log(chalk.blue("RULES OF THE GAME : YOU HAVE TO GIVE ATLEAST THREE(3) CORRECT ANSWER TO ENTER THE NEXT LEVEL"))
 
 function play(question,answer)
 {
@@ -15,12 +17,12 @@ function play(question,answer)
 
   if (useranswer === answer)
   {
-    console.log("you are right ! ")
+    console.log(chalk.green("you are right ! "))
     score = score + 1;
   }
   else
   {
-    console.log("you are wrong ! ")
+    console.log(chalk.red("you are wrong ! "))
   }
   console.log("your current score is " + score)
   console.log("*************************************")
@@ -90,10 +92,10 @@ function levelUp()
 	level1();
     if (score >= 3)
     {
-      console.log("CONGRATS ! WELCOME TO LEVEL2")
+      console.log(chalk.magentaBright("CONGRATS ! WELCOME TO LEVEL2"))
 	  } else if(score<3)  
     {
-	  console.log("TRY AGAIN")
+	  console.log(chalk.redBright("TRY AGAIN"))
 	  
 	  level1();
     score = x;
@@ -142,5 +144,5 @@ if (userScore.highscore == highScore.highscore)
   console.log("CONGRATULATIONS ! YOU HAVE BEATEN HIGH SCORE")
 } 
 
-console.log("THANKS " + userName +" FOR PLAYING THE QUIZ ")
+console.log(chalk.yellowBright("THANKS " + userName +" FOR PLAYING THE QUIZ "))
 console.log ("YOUR FINAL SCORE IS:", score)
